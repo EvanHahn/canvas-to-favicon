@@ -1,0 +1,23 @@
+{
+	"name": "canvas-to-favicon",
+	"version": "0.1.0",
+	"description": "take a 16x16 canvas and send it to the favicon",
+	"main": "canvas-to-favicon.js",
+	"keywords": [
+		"canvas", "favicon"
+	],
+	"homepage": "https://github.com/EvanHahn/canvas-to-favicon",
+	"bugs": "https://github.com/EvanHahn/canvas-to-favicon/issues",
+	"author": {
+		"name": "Evan Hahn",
+		"email": "me@evanhahn.com",
+		"url": "http://evanhahn.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:EvanHahn/canvas-to-favicon.git"
+	},
+	"licenses": [{
+		"type": "Unlicense"
+	}]
+}
