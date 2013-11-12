@@ -1,3 +1,8 @@
+/* made with love by Evan Hahn.
+ * unlicensed.
+ * you're a beautiful snowflake
+ */
+
 ;(function(global) {
 
 	var appended = false;
