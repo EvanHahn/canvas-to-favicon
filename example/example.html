@@ -8,7 +8,7 @@
 </head>
 <body>
 
-	<canvas width="16" height="16"></canvas>
+	<canvas width="64" height="64"></canvas>
 
 	<script src="../canvas-to-favicon.js"></script>
 	<script>
@@ -16,52 +16,57 @@
 	var canvas = document.querySelector('canvas');
 	var context = canvas.getContext('2d');
 
+  var width = canvas.width;
+  var height = canvas.height;
+  var centerX = width / 2;
+  var centerY = height / 2;
+
 	setInterval(function() {
 
-		// woah what time is it honey
+		// what time is it
 		var now = new Date;
 		var hours = now.getHours() % 12;
 		var minutes = now.getMinutes();
 		var seconds = now.getSeconds();
 
-		// woah what are the angles
+		// what are the angles
 		var hoursAngle = (hours - 3) * 2 * Math.PI / 12;
 		var minutesAngle = (minutes - 15) * 2 * Math.PI / 60;
 		var secondsAngle = (seconds - 15) * 2 * Math.PI / 60;
 
 		// clear it all
-		context.clearRect(0, 0, 16, 16);
+		context.clearRect(0, 0, width, height);
 
 		// clock outline
 		context.beginPath();
 		context.strokeStyle = '#000000';
 		context.fillStyle = '#ffffff';
-		context.lineWidth = 1.8;
-		context.arc(8, 8, 7, 0, Math.PI * 2);
+		context.lineWidth = width / 16;
+		context.arc(centerX, centerY, width * 0.45, 0, Math.PI * 2);
 		context.fill();
 		context.stroke();
 
 		// second hand
 		context.beginPath();
 		context.strokeStyle = '#ff0000';
-		context.lineWidth = .5;
-		context.moveTo(8, 8);
-		context.lineTo(Math.cos(secondsAngle) * 8 + 8, Math.sin(secondsAngle) * 8 + 8);
+		context.lineWidth = width / 32;
+		context.moveTo(centerX, centerY);
+		context.lineTo(Math.cos(secondsAngle) * width + centerX, Math.sin(secondsAngle) * height + centerY);
 		context.stroke();
 
 		// hour hand
 		context.beginPath();
 		context.strokeStyle = '#000000';
-		context.lineWidth = 2;
-		context.moveTo(8, 8);
-		context.lineTo(Math.cos(hoursAngle) * 8 + 8, Math.sin(hoursAngle) * 8 + 8);
+		context.lineWidth = width / 16;
+		context.moveTo(centerX, centerY);
+		context.lineTo(Math.cos(hoursAngle) * width + centerX, Math.sin(hoursAngle) * height + centerY);
 		context.stroke();
 
 		// minute hand
 		context.beginPath();
-		context.lineWidth = .5;
-		context.moveTo(8, 8);
-		context.lineTo(Math.cos(minutesAngle) * 8 + 8, Math.sin(minutesAngle) * 8 + 8);
+		context.lineWidth = width / 32;
+		context.moveTo(centerX, centerY);
+		context.lineTo(Math.cos(minutesAngle) * width + centerX, Math.sin(minutesAngle) * height + centerY);
 		context.stroke();
 
 		// send it to the favicon!

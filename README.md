@@ -1,7 +1,7 @@
 canvas to favicon
 =================
 
-take a 16x16 canvas and send it to the favicon:
+take a canvas and send it to the favicon:
 
     canvasToFavicon(myCanvas)
 
